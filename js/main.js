@@ -54,42 +54,29 @@ btnGenera.addEventListener("click",
 
         document.getElementById("codiceCP").innerHTML = (getRandomBetween(90000, 100000).toFixed(0));
 
-        //5.  Prezzo calcolato
-
-        // Prezzo calcolato per minorenni, maggiorenni, over65;
+        //5.  Prezzo calcolato per minorenni, maggiorenni, over65;
 
         // defining ticket variables 
-        var scontoUnderDiciotto = 0.8;
-        var scontoOverSessantacinque = 0.6;
-        var prezzo_biglietto = 0.21;
+        var scontounder18 = 0.8;
+        var scontoOver65 = 0.6;
+        var costoBiglietto = 0.21;
 
         // conditions 
-        if ("minorenne") {
-            prezzo_biglietto = (("km") * prezzo_biglietto) * scontoUnderDiciotto;
+        if (fasciaEta == "minorenne"){
+            costoBiglietto = (km * costoBiglietto) * scontounder18;
         }
-        else if ("maggiorenne") {
-            prezzo_biglietto = (("km") * prezzo_biglietto) * scontoOverSessantacinque;
+        else if (fasciaEta == "maggiorenne") {
+            costoBiglietto = (km * costoBiglietto);
         }
-        else if ("over65") {
-            prezzo_biglietto = (("km") * prezzo_biglietto) * scontoOverSessantacinque;
-        }
-        else {
-            prezzo_biglietto = (("km") * prezzo_biglietto);
-        }
+        else if (fasciaEta == "over65") {
+            costoBiglietto = (km * costoBiglietto) * scontoOver65;
+        } 
 
-        document.getElementById("fascia-eta").innerHTML = "Total cost " + prezzo_biglietto.toFixed(2) + " €";
-
-        //  Console 
-        console.log(km);
-        console.log("il costo del biglietto è " + prezzo_biglietto)
-
-
-
+        document.getElementById("costoBiglietto").innerHTML = (costoBiglietto.toFixed(2) + " €");
     }
 )
 
-
-//6.  Aggiungiamo una piccola animazione al click su "Crea" e "Annulla", se clicchiamo su annulla dobbiamo ripulire il form.
+//6. Aggiungiamo una piccola animazione al click su "Crea" e "Annulla", se clicchiamo su annulla dobbiamo ripulire il form.
 
 // assegno una variabile al bottone ANNULLA;
 
@@ -109,5 +96,17 @@ btnAnnulla.addEventListener("click",
         var titoloBiglietto = document.getElementById("titoloBiglietto");
         titoloBiglietto.style.display = "none";
 
+    }
+)
+
+ //7. footer
+
+ var logoItalo = document.getElementById("italotreno");
+ var trenitalia = document.getElementById("trenitalia");
+
+logoItalo.addEventListener("mouseover",
+    function() {
+        logoItalo.style.display = "none";
+        trenitalia.style.display = "block";
     }
 )

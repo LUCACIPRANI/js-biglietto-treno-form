@@ -57,10 +57,16 @@ select{
     height: 33px;
 }
 
+input:hover,
+select:hover{
+    background-color: #B91550;
+}
+
 /* bottoni  */
-.buttons button{
+button{
     background-color: #CCCCCC;
     color: #B91550;
+    border-radius: 3px;
     padding: 5px;
     font-size: 18px;
     margin: 8px;
@@ -72,6 +78,10 @@ select{
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+button:hover{
+    border: 3px solid #A164A2;
 }
 
 /* container box  */
@@ -129,4 +139,21 @@ select{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+/* footer  */
+.treni{
+    position: relative;
+}
+.treni img{
+    position: absolute;
+    left: 20%;
+    top: 70px;
+    transform: translate(-50%, -50%);
+    height: 40px;
+    width: 100px;
+}
+
+#trenitalia{
+    display: none;
 }
